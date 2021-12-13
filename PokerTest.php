@@ -19,7 +19,6 @@ class PokerTest extends TestCase
         $this->assertEquals('Flush',$poker->retrieveCombinaison([['A','H'],['3','H'],['5','H'],['10','H'],['K','H']]));
         $this->assertEquals('Straight',$poker->retrieveCombinaison([['2','H'],['3','S'],['A','H'],['5','H'],['4','H']]));
         $this->assertEquals('Straight',$poker->retrieveCombinaison([['A','H'],['K','S'],['Q','H'],['J','H'],['10','H']]));
-        $this->assertEquals('Straight',$poker->retrieveCombinaison([['A','H'],['K','S'],['Q','H'],['J','H'],['10','H']]));
         $this->assertEquals('Straight flush',$poker->retrieveCombinaison([['A','H'],['2','H'],['5','H'],['4','H'],['3','H']]));
         $this->assertEquals('Royal flush',$poker->retrieveCombinaison([['A','H'],['J','H'],['K','H'],['Q','H'],['10','H']]));
     }
