@@ -53,7 +53,7 @@ class Poker
                     $combinaisons['One pair']++;
                     if($combinaisons['One pair'] === 2) {
                        $combinaisons['One pair'] = 0;
-                        $combinaisons['Two pairs'] = 1;
+                        $combinaisons['Two pairs']++;
 
                     }
                     break;
