@@ -21,18 +21,6 @@ class Poker
     ];
     public function retrieveCombinaison(array $cards): string
     {
-    $combinaisons = [
-      'One pair' => 0,
-      'Two pairs' => 0,
-      'Three of a kind' => 0,
-      'Straight' => 0,
-        'Flush' => 0,
-        'Full house' => 0,
-        'Four of a kind' => 0,
-        'Straight flush' => 0,
-        'Royal flush' => 0,
-    ];
-
         $result = 'High card';
         $values = [];
         $colors = [];
@@ -50,30 +38,28 @@ class Poker
         foreach ($countValues as $count) {
             switch ($count) {
                 case 2:
-                    $combinaisons['One pair']++;
-                    if($combinaisons['One pair'] === 2) {
-                       $combinaisons['One pair'] = 0;
-                        $combinaisons['Two pairs']++;
+                    if($result === 'One pair') {
+                        $result = 'Two pairs';
 
+                    } else{
+                        $result = 'One pair';
                     }
                     break;
                 case 3:
-                    if($combinaisons['One pair'] === 1) {
-                        $combinaisons['One pair'] = 0;
-                        $combinaisons['Full house']++;
+                    if($result === 'One pair') {
+                        $result = 'Full house';
                     } else{
-                        $combinaisons['Three of a kind']++;
+                        $result = 'Three of a kind';
                     }
                     break;
                 case 4:
-                    $combinaisons['Two pairs'] = 0;
-                    $combinaisons['Four of a kind']++;
+                    $result = 'Four of a kind';
                     break;
             }
         }
         $countColors = array_count_values($colors);
         if(in_array(count($colors),$countColors)) {
-            $combinaisons['Flush']++;
+            $result = 'Flush';
         }
         $countSuite = 0;
         for($i = 0; $i < count($values) - 1; $i++) {
@@ -82,24 +68,19 @@ class Poker
             }
         }
          if($countSuite === 4){
-             $combinaisons['Straight']++;
-             if($combinaisons['Flush'] === 1) {
-                 $combinaisons['Flush'] = 0;
-                 $combinaisons['Straight flush']++;
+             if($result === 'Flush') {
+                 $result = 'Straight flush';
+             } else {
+                $result = 'Straight';
              }
          }
          if($countSuite === 3 && (self::ORDER_VALUES[$values[count($values) - 1]] - self::ORDER_VALUES[$values[0]]) === 12) {
-             $combinaisons['Straight']++;
-             if($combinaisons['Flush'] === 1) {
-                 $combinaisons['Flush'] = 0;
-                 $combinaisons['Royal flush']++;
+             if ($result === 'Flush') {
+                 $result = 'Royal flush';
+             } else {
+                $result = 'Straight';
              }
          }
-        foreach ($combinaisons as $combinaisonName => $countCombinaison) {
-            if($countCombinaison !== 0) {
-                $result = $combinaisonName;
-            }
-        }
         return $result;
     }
 }
