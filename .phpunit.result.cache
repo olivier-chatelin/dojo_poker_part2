@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"app\\PokerTest::testRetrieveCombinaison":0.001}}
+{"version":1,"defects":{"app\\PokerTest::testRetrieveCombinaison":3},"times":{"app\\PokerTest::testRetrieveCombinaison":0.002}}
