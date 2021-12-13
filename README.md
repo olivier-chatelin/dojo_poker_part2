@@ -1,4 +1,4 @@
-###Poker hands   
+# Poker hands   
 
 Retourne le nom de la combinaison en fonction de la main reçue   
 
