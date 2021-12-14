@@ -41,6 +41,8 @@ class Poker
                     if($result === 'One pair') {
                         $result = 'Two pairs';
 
+                    } elseif($result === 'Three of a kind'){
+                        $result = 'Full house';
                     } else{
                         $result = 'One pair';
                     }

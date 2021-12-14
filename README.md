@@ -2,6 +2,12 @@
 
 Retourne le nom de la combinaison en fonction de la main reçue   
 
+## Partie 2   
+Gérer les:    
+-Couleurs   
+-Suites   
+-Quintes Flush   
+-Quintes Flush Royales
 
 | Français | Anglais     |
 |----------|-------------|
